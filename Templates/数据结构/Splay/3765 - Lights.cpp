@@ -109,11 +109,15 @@ void insert(int x, int num, int sta){
     tree[sz].sz = 1, tree[sz].gcd[sta] = tree[sz].num[sta] = num;
     if(tree[x].r == 0){
         tree[sz].f = x, tree[x].r = sz;
+        tree[x].sz ++;
     }
     else{
         x = tree[x].r;
-        while(tree[x].l) x = tree[x].l;
-        tree[sz].f = x, tree[x].l = sz;
+        while(tree[x].l) {
+            tree[x].sz ++;
+            x = tree[x].l;
+        }
+        tree[sz].f = x, tree[x].l = sz, tree[x].sz ++;
     }
     splay(sz);
 }
