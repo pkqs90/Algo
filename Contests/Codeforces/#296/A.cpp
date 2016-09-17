@@ -61,4 +61,4 @@ int main() {
         auto j = V.rbegin();
         printf("%I64d\n", 1LL * (*j) * (*i));
     }
-}11
+}
