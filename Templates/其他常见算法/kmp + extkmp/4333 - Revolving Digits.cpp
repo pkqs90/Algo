@@ -69,6 +69,34 @@ void kmp(char *ch){
     // 事后还原 。。
 }
 
+// https://leetcode.cn/contest/weekly-contest-362/problems/string-transformation/
+void kmp(const string& s){
+    int n = s.size();
+    for (int i = 0; i < n; ++i) {
+        nxt[i] = -1;
+    }
+    int j = -1;
+    for(int i = 1; i < n; i ++){
+        while (j != -1 && s[i] != s[j + 1]) j = nxt[j];
+        if (s[i] == s[j + 1]) j ++;
+        nxt[i] = j;
+    }
+}
+bool found = false;
+for (int i = 0, j = -1; i < 2 * s.size(); ++i) {
+    char cur = s[i % s.size()];
+    while (j != -1 && cur != t[j + 1]) {
+        j = nxt[j];
+    }
+    if (cur == t[j + 1]) {
+        j++;
+    }
+    if (j == t.size() - 1) {
+        found = true;
+        break;
+    }
+}
+
 char ch[MAXN];
 
 int t, cas;

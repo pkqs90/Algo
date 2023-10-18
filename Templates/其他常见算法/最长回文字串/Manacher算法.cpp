@@ -1,3 +1,5 @@
+// https://cp-algorithms.com/string/manacher.html#manachers-algorithm
+
 #pragma  comment(linker, "/STACK:36777216")
 #include <map>
 #include <set>
